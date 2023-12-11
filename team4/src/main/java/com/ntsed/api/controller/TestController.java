@@ -9,5 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 */
 @RestController
 public class TestController {
-
+           
+	int soi = 1+7;
 }
