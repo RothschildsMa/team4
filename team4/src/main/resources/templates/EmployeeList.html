@@ -1,0 +1,73 @@
+<!--
+*
+*　author: 高根沢
+*  date:2023/12/13
+*
+-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>勤怠管理システム - 社員一覧</title>
+	<!-- タイトル以外のスタイルやライブラリを追加する場合は、ここに追加 -->
+</head>
+
+<body>
+	<div class="container mt-5">
+		<h2>社員一覧</h2>
+		<form class="form-inline mb-3">
+			<div class="form-group mr-2">
+				<label for="inputEmployeeID">社員ID</label>
+				<input type="text" class="form-control" id="inputEmployeeID" placeholder="社員ID">
+			</div>
+			<div class="form-group mr-2">
+				<label for="inputJoinDate">入社年月日</label>
+				<input type="date" class="form-control" id="inputJoinDate">
+			</div>
+			<div class="form-group mr-2">
+				<label for="selectDepartment">所属</label>
+				<select class="form-control" id="selectDepartment">
+					<option value="dept1">部署1</option>
+					<option value="dept2">部署2</option>
+					<option value="dept3">部署3</option>
+				</select>
+			</div>
+			<button type="submit" class="btn btn-primary mr-2" th:href="@{/search}">検索</button>
+			<button type="button" class="btn btn-danger mr-2" th:href="@{/delete}">削除</button>
+			<button type="button" class="btn btn-warning mr-2" th:href="@{/update}">更新</button>
+			<button type="button" class="btn btn-secondary" th:href="@{/close}">閉じる</button>
+		</form>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">選択</th>
+					<th scope="col">社員ID</th>
+					<th scope="col">入社年月日</th>
+					<th scope="col">氏名</th>
+					<th scope="col">性別</th>
+					<th scope="col">年齢</th>
+					<th scope="col">所属</th>
+					<th scope="col">メールアドレス</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="checkbox"></td>
+					<td>001</td>
+					<td>2023-01-01</td>
+					<td>山田太郎</td>
+					<td>男性</td>
+					<td>30</td>
+					<td>部署1</td>
+					<td>example@example.com</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!-- タイトル以外のスクリプトやライブラリを追加する場合は、ここに追加 -->
+</body>
+
+</html>
