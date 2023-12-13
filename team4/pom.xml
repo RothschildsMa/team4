@@ -83,19 +83,21 @@
 			<version>3.0.3</version>
 			<scope>test</scope>
 		</dependency>
+		<!--
 		<dependency>
 			<groupId>com.example</groupId>
 			<artifactId>accessing-data-mysql-initial</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		
+		-->
+
 		<!--2023/12/12追加。Thymeleaf-->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<groupId>org.thymeleaf</groupId>
+			<artifactId>thymeleaf</artifactId>
 		</dependency>
-	
-	
+
+
 	</dependencies>
 
 	<build>
