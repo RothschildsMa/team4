@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<meta charset="UTF-8">
-	<title>社員情報登録</title>
+	<title>社員情報更新</title>
 </head>
 <!--author: セツ
   date:2023/12/15-->
@@ -12,8 +12,8 @@
 		<div th:if="${validationError}" th:each="error : ${validationError}">
 			<label class="text-danger" th:text="${error}"></label>
 		</div>
-		<h1>社員情報登録</h1>
-		<form th:action="@{/user/create}" th:object="${UserAddRequest}" th:method="post">
+		<h1>社員情報更新</h1>
+		<form th:action="@{/user/update}" th:object="${userUpdateRequest}" th:method="post">
 			<div class="form-group">
 				<label>社員ID*</label>
 				<input type="text" th:field="*{employeeId}" class="form-control">
@@ -23,7 +23,7 @@
 				<input type="text" th:field="*{employeeName}" class="form-control">
 			</div>
 			<div class="form-group">
-				<label for="deptId">所属*：</label>
+				<label for="deptId">所属：</label>
 				<select id="deptId" class="form-control" th:field="*{deptId}">
 					<option value="0">0.管理部</option>
 					<option value="1">1.人事部</option>
@@ -32,17 +32,23 @@
 				</select>
 			</div>
 			<div class="form-check">
-				<label for="genderId">性別*：</label>
+				<label>性別*</label>
 				<input class="form-check-input" type="radio" name="genderId1" th:field="*{genderId}">
-				<label class="form-check-label" for="flexRadioDefault1">未確認</label>
+				<label class="form-check-label" for="flexRadioDefault1">
+					未確認
+				</label>
 			</div>
 			<div class="form-check">
 				<input class="form-check-input" type="radio" name="genderId2" th:field="*{genderId}">
-				<label class="form-check-label" for="flexRadioDefault1">男</label>
+				<label class="form-check-label" for="flexRadioDefault1">
+					男
+				</label>
 			</div>
 			<div class="form-check">
 				<input class="form-check-input" type="radio" name="genderId3" th:field="*{genderId}">
-				<label class="form-check-label" for="flexRadioDefault1">女</label>
+				<label class="form-check-label" for="flexRadioDefault1">
+					女
+				</label>
 			</div>
 			<div class="form-group">
 				<label>電話番号:</label>
@@ -63,7 +69,7 @@
 			<br />
 			<div class="text-center">
 				<a href="/user/list" class="btn btn-secondary">閉じる</a>
-				<input type="submit" value="　登録　" class="btn btn-primary">
+				<input type="submit" value="　修正　" class="btn btn-primary">
 			</div>
 		</form>
 	</div>
