@@ -7,13 +7,14 @@
 </head>
 <!--author: セツ
   date:2023/12/15-->
+
 <body>
 	<div class="container">
 		<div th:if="${validationError}" th:each="error : ${validationError}">
 			<label class="text-danger" th:text="${error}"></label>
 		</div>
 		<h1>社員情報登録</h1>
-		<form th:action="@{/user/create}" th:object="${UserAddRequest}" th:method="post">
+		<form th:action="@{/user/create}" th:object="${userAddRequest}" th:method="post">
 			<div class="form-group">
 				<label>社員ID*</label>
 				<input type="text" th:field="*{EMPLOYEE_ID}" class="form-control">
@@ -31,17 +32,18 @@
 					<option value="3">3.営業部</option>
 				</select>
 			</div>
-			<div class="form-check">
+			<div class="form-group">
 				<label for="genderId">性別*：</label>
-				<input class="form-check-input" type="radio" name="genderId1" th:field="*{GENDER_ID}">
+				<div class="form-check">
+				<input value="0" class="form-check-input" type="radio" name="genderId1" th:field="*{GENDER_ID}">
 				<label class="form-check-label" for="flexRadioDefault1">未確認</label>
 			</div>
 			<div class="form-check">
-				<input class="form-check-input" type="radio" name="genderId2" th:field="*{GENDER_ID}">
+				<input value="1" class="form-check-input" type="radio" name="genderId2" th:field="*{GENDER_ID}">
 				<label class="form-check-label" for="flexRadioDefault1">男</label>
 			</div>
 			<div class="form-check">
-				<input class="form-check-input" type="radio" name="genderId3" th:field="*{GENDER_ID}">
+				<input value="2"class="form-check-input" type="radio" name="genderId3" th:field="*{GENDER_ID}">
 				<label class="form-check-label" for="flexRadioDefault1">女</label>
 			</div>
 			<div class="form-group">
@@ -62,8 +64,9 @@
 			</div>
 			<br />
 			<div class="text-center">
-				<a href="/user/list" class="btn btn-secondary">閉じる</a>
 				<input type="submit" value="　登録　" class="btn btn-primary">
+				<a href="/user/list" class="btn btn-secondary">閉じる</a>
+
 			</div>
 		</form>
 	</div>
