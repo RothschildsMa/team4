@@ -37,6 +37,8 @@ public class UserAddRequest implements Serializable {
     
     private String EMPLOYEE_MAIL;
     
+    private String LOGIN_USER;
+    
     
    
   

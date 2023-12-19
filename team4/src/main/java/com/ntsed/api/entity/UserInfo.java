@@ -37,4 +37,6 @@ public class UserInfo implements Serializable {
     
     private Date CREATE_DATE;
     
+    private String LOGIN_USER;
+    
 }
