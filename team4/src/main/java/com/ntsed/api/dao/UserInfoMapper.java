@@ -9,7 +9,7 @@ import com.ntsed.api.dto.UserUpdateRequest;
 @Mapper
 public interface UserInfoMapper {
 
-	UserInfo findById(Long EMPLOYEE_ID);
+	UserInfo findById(Long employeeId);
 	
 	void save(UserAddRequest userRequest);
 	

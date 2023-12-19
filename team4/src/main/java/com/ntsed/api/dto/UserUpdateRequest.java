@@ -17,5 +17,5 @@ import lombok.EqualsAndHashCode;
 public class UserUpdateRequest extends UserAddRequest implements Serializable {
  
     @NotNull
-    private Long EMPLOYEE_ID;
+    private Long employeeId;
 }

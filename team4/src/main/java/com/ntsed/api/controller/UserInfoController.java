@@ -39,18 +39,18 @@ public class UserInfoController {
 	        return "user/add";
 	    }
 	 
-	 @GetMapping("/user/{EMPLOYEE_ID}/edit")
-	    public String displayEdit(@PathVariable Long EMPLOYEE_ID, Model model) {
-	        UserInfo user = userInfoService.findById(EMPLOYEE_ID);
+	 @GetMapping("/user/{employeeId}/edit")
+	    public String displayEdit(@PathVariable Long employeeId, Model model) {
+	        UserInfo user = userInfoService.findById(employeeId);
 	        UserUpdateRequest userUpdateRequest = new UserUpdateRequest();
-	        userUpdateRequest.setEMPLOYEE_ID(user.getEMPLOYEE_ID());
-	        userUpdateRequest.setEMPLOYEE_NAME(user.getEMPLOYEE_NAME());
-	        userUpdateRequest.setDEPT_ID(user.getDEPT_ID());
-	        userUpdateRequest.setGENDER_ID(user.getGENDER_ID());
-	        userUpdateRequest.setEMPLOYEE_TEL(user.getEMPLOYEE_TEL());
-	        userUpdateRequest.setENTRY_DATE(user.getENTRY_DATE());
-	        userUpdateRequest.setEMPLOYEE_AGE(user.getEMPLOYEE_AGE());
-	        userUpdateRequest.setEMPLOYEE_MAIL(user.getEMPLOYEE_MAIL());
+	        userUpdateRequest.setEmployeeId(user.getEmployeeId());
+	        userUpdateRequest.setEmployeeName(user.getEmployeeName());
+	        userUpdateRequest.setDeptId(user.getDeptId());
+	        userUpdateRequest.setGenderId(user.getGenderId());
+	        userUpdateRequest.setEmployeeTel(user.getEmployeeTel());
+	        userUpdateRequest.setEntryDate(user.getEntryDate());
+	        userUpdateRequest.setEmployeeAge(user.getEmployeeAge());
+	        userUpdateRequest.setEmployeeMail(user.getEmployeeMail());
 	        
 	        model.addAttribute("userUpdateRequest", userUpdateRequest);
 	        return "user/edit";

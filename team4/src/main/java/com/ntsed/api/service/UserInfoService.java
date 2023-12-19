@@ -21,8 +21,8 @@ public class UserInfoService {
 	@Autowired
     private UserInfoMapper userInfoMapper;
 	
-	public UserInfo findById(Long EMPLOYEE_ID) {
-        return userInfoMapper.findById(EMPLOYEE_ID);
+	public UserInfo findById(Long employeeId) {
+        return userInfoMapper.findById(employeeId);
     }
 	
 	 public void save(UserAddRequest userAddRequest) {

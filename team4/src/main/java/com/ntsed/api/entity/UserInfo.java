@@ -3,7 +3,8 @@ package com.ntsed.api.entity;
 
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
+
 import lombok.Data;
 
 /*
@@ -15,28 +16,32 @@ import lombok.Data;
 @Data
 public class UserInfo implements Serializable {
     
-    private Long EMPLOYEE_ID;
-    
-    private String EMPLOYEE_NAME;
-   
-    private String DEPT_ID;
-    
-    private Integer DEL_FLG;
-    
-    private String GENDER_ID;
-   
-    private String EMPLOYEE_TEL;
-    
-    private String ENTRY_DATE;
-    
-    private Integer EMPLOYEE_AGE;
-    
-    private String EMPLOYEE_MAIL;
-    
-    private Date UPDATE_DATE;
-    
-    private Date CREATE_DATE;
-    
-    private String LOGIN_USER;
+	  private Long employeeId;
+	    
+	    private String employeeName;
+	   
+	    private String deptId;
+	    
+	    private Integer delFlg;
+	    
+	    private String genderId;
+	   
+	    private String employeeTel;
+	    
+	    private Date entryDate;
+	    
+	    private Integer employeeAge;
+	    
+	    private String employeeMail;
+	    
+	    private Date updateDate;
+	    
+	    private Date createDate;
+	    
+	    private String createUser;
+	    
+	    private String loginUser;
+	    
+	    private String updateUser;
     
 }

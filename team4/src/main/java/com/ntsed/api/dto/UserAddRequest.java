@@ -1,10 +1,11 @@
 package com.ntsed.api.dto;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotEmpty;
-
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
@@ -17,27 +18,38 @@ import lombok.Data;
 @Data
 public class UserAddRequest implements Serializable {
    
+private Long employeeId;
+	
     @NotEmpty(message = "氏名を入力してください")
     @Size(max = 20, message = "氏名は20桁以内で入力してください")
-    private String EMPLOYEE_NAME;
+    private String employeeName;
    
- 
-    private String DEPT_ID;
+    @NotEmpty(message = "所属を選択してください。")
+    private String deptId;
     
     @NotEmpty(message = "性別を選択してください。")
-    private String GENDER_ID;
+    private String genderId;
+    
+  @Size(max = 11, min=10,message = "正しい電話番号を入力してください。")
+    private String employeeTel;
+    
+    private Integer delFlg;
     
 
-    private String EMPLOYEE_TEL;
+    private Date entryDate;
     
-    private String ENTRY_DATE;
-    
+
     @Column(length = 2)
-    private Integer EMPLOYEE_AGE;
+    private Integer employeeAge;
     
-    private String EMPLOYEE_MAIL;
+    @Pattern(regexp = "^([\\w])+([\\w\\._-])*\\@([\\w])+([\\w\\._-])*\\.([a-zA-Z])+$",message ="正しいメールアドレスはを入力してください。")
+    private String employeeMail;
     
-    private String LOGIN_USER;
+    private String createUser;
+    
+    private Date createDate;
+    
+    private String loginUser;
     
     
    
