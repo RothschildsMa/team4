@@ -1,7 +1,7 @@
 <!--
 *
 *　author: 高根沢
-*  date:2023/12/18
+*  date:2023/12/22
 *
 -->
 
@@ -16,9 +16,11 @@
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 	<link th:href="@{/css/employeelist.css}" rel="stylesheet">
 </head>
-
+<!--
+	所属、性別からデータ結合で表示する	
+-->
 <body>
-
+	<!--フォーム1検索機能-->
 	<form th:action="@{/search}" method="post">
 		<div class="hed">
 			<div>
@@ -37,7 +39,7 @@
 
 			<div>
 				<!--<a th:href="@{/user/{EMPLOYEE2_ID}/search}">-->
-				<button type="submit" class="kensaku">検索</button>
+				<button type="submit" class="kensaku" value="検索">検索</button>
 				<!--</a>-->
 			</div>
 		</div>
@@ -48,23 +50,30 @@
 			<input type="date" name="upEndData">
 		</div>
 	</form>
-
+	
+	<!--フォーム2チェックボックスから社員IDを更新画面に渡す-->
 	<form th:action="@{/edit}" method="post">
 		<div class="button3">
 			<div>
-				<!--<a th:href="@{'/user/' + ${EMPLOYEE2_ID} + '/delete'}">-->
-				<button type="submit" class="sakujo">削除</button>
-				<!--</a>-->
-			</div>
-
-			<div>
+				<!--更新ボタンを押したら、社員IDを渡しつつ更新画面へ遷移する-->
 				<!--<a th:href="@{'/useredit/' + ${EMPLOYEE_Test_ID} + '/edit'}">-->
-				<button type="submit" class="kousin">更新</button>
+				<!--<button type="submit" class="kousin">更新</button>-->
+				<input type="submit" class="tuika" value="追加">
+				<!--</a>-->
+			</div>
+			
+			<div>
+				<!--削除ボタンを押したら、削除フラグをアップデートする-->
+				<!--<a th:href="@{'/user/' + ${EMPLOYEE2_ID} + '/delete'}">-->
+				<!--<button type="submit" class="sakujo">削除</button>-->
+				<input type="submit" class="sakujo" value="削除">
 				<!--</a>-->
 			</div>
 
 			<div>
-				<a th:href="@{/close}"><button type="submit" class="tojiru">閉じる</button></a>
+				<!--閉じる画面を押したら、ログイン画面へ遷移する-->
+				<!--<a th:href="@{/close}"><button type="submit" class="tojiru">閉じる</button></a>-->
+				<input type="submit" class="tojiru" value="閉じる">
 			</div>
 		</div>
 
@@ -86,15 +95,14 @@
 				<tbody>
 					<!--Thymeleaf の構文を使用してデータを表示 -->
 					<tr th:each="employee : ${employees}">
-						<td><input type="checkbox" th:value="${employee.T_EMPLOYEE}" name="selectedIds"></td>
-						<td><a th:href="@{'/user/' + ${employee.T_EMPLOYEE} + '/edit'}"
-								th:text="${employee.T_EMPLOYEE}">Employee ID</a></td>
-						<td th:text="${#dates.format(employee.ENTRY_DATE, 'yyyy-MM-dd HH:mm:ss')}"></td>
-						<td th:text="${employee.EMPLOYEE_NAME}"></td>
-						<td th:text="${employee.GENDER_ID}"></td>
-						<td th:text="${employee.EMPLOYEE_AGE}"></td>
-						<td th:text="${employee.DEPT_ID}"></td>
-						<td th:text="${employee.EMPLOYEE_MAIL}"></td>
+						<td><input type="checkbox" th:value="${employee.employeeId}" name="selectedIds"></td>
+						<td><a th:href="@{'/user/' + ${employee.employeeId} + '/editTest'}" th:text="${employee.employeeId}">Employee ID</a></td>
+						<td th:text="${#dates.format(employee.entryDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+						<td th:text="${employee.employeeName}"></td>
+						<td th:text="${employee.genderId}"></td>
+						<td th:text="${employee.employeeAge}"></td>
+						<td th:text="${employee.deptId}"></td>
+						<td th:text="${employee.employeeMail}"></td>
 					</tr>
 				</tbody>
 			</table>

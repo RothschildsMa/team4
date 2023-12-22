@@ -16,7 +16,7 @@ import org.springframework.ui.Model;
 
 /*
  * author: 高根沢
- * date:2023/12/18
+ * date:2023/12/22
  * 
 */
 
@@ -36,7 +36,7 @@ public class EmployeeListController {
         List<EmployeeListInfo> employees = employeeService.getAllEmployees();
         model.addAttribute("employees", employees);
 //        return "TestIndex"; // このテンプレート名は適宜変更してください
-        return "TestIndex2";
+        return "EmployeeList";
     }
     
 //    @PostMapping("/search")

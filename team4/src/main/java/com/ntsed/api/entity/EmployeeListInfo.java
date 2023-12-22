@@ -12,7 +12,7 @@ import lombok.Setter;
 
 /*
  * author: 高根沢
- * date:2023/12/18
+ * date:2023/12/22
  * 
 */
 
@@ -27,27 +27,13 @@ import lombok.Setter;
 public class EmployeeListInfo {
 
 	@Id
-	private Long T_EMPLOYEE;
-
-	private String EMPLOYEE_NAME;
-
-	private Date ENTRY_DATE;
-
-	private Integer DEPT_ID;
-
-	private Integer DEL_FLG;
-
-	private Integer GENDER_ID;
-
-//	private String EMPLOYEE_TEL;
-
-	private Integer EMPLOYEE_AGE;
-
-	private String EMPLOYEE_MAIL;
-
-//	private Date UPDATE_DATE;
-
-//	private Date CREATE_DATE;
+	private Long employeeId;
+	private String employeeName;
+	private Date entryDate;
+	private Integer genderId;
+	private Integer employeeAge;
+	private Integer deptId;
+	private String employeeMail;
 	
 	
 }
