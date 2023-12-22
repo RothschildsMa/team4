@@ -26,35 +26,6 @@ import lombok.Setter;
 @Setter
 public class EmployeeListInfo {
 
-	/*
-	 * @Id private Long employeeId;
-	 * 
-	 * private String employeeName;
-	 * 
-	 * private String password;
-	 * 
-	 * private Integer deptId;
-	 * 
-	 * private Integer delFlg;
-	 * 
-	 * private Integer genderId;
-	 * 
-	 * private String employeeTel;
-	 * 
-	 * private Date entryDate;
-	 * 
-	 * private Integer employeeAge;
-	 * 
-	 * private String employeeMail;
-	 * 
-	 * private Date createDate;
-	 * 
-	 * private Date createUser;
-	 * 
-	 * private Date update_date;
-	 * 
-	 * private Date update_user;
-	 */
 	@Id
 	private Long EMPLOYEE_ID;
 	private String EMPLOYEE_NAME;
@@ -63,17 +34,6 @@ public class EmployeeListInfo {
 	private Integer EMPLOYEE_AGE;
 	private Integer DEPT_ID;
 	private String EMPLOYEE_MAIL;
-//	private String password;
-//	private Integer deptId;
-//	private Integer delFlg;
-//	private Integer genderId;
-//	private String employeeTel;
-//	private Date entryDate;
-//	private Integer employeeAge;
-//	private String employeeMail;
-//	private Date createDate;
-//	private Date createUser;
-//	private Date update_date;
-//	private Date update_user;
+
 }
 
