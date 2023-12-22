@@ -95,14 +95,14 @@
 				<tbody>
 					<!--Thymeleaf の構文を使用してデータを表示 -->
 					<tr th:each="employee : ${employees}">
-						<td><input type="checkbox" th:value="${employee.employeeId}" name="selectedIds"></td>
-						<td><a th:href="@{'/user/' + ${employee.employeeId} + '/editTest'}" th:text="${employee.employeeId}">Employee ID</a></td>
-						<td th:text="${#dates.format(employee.entryDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
-						<td th:text="${employee.employeeName}"></td>
-						<td th:text="${employee.genderId}"></td>
-						<td th:text="${employee.employeeAge}"></td>
-						<td th:text="${employee.deptId}"></td>
-						<td th:text="${employee.employeeMail}"></td>
+						<td><input type="checkbox" th:value="${employee.EMPLOYEE_ID}" name="selectedIds"></td>
+						<td><a th:href="@{'/user/' + ${employee.EMPLOYEE_ID} + '/editTest'}" th:text="${employee.EMPLOYEE_ID}">Employee ID</a></td>
+						<td th:text="${#dates.format(employee.ENTRY_DATE, 'yyyy-MM-dd HH:mm:ss')}"></td>
+						<td th:text="${employee.EMPLOYEE_NAME}"></td>
+						<td th:text="${employee.GENDER_ID}"></td>
+						<td th:text="${employee.EMPLOYEE_AGE}"></td>
+						<td th:text="${employee.DEPT_ID}"></td>
+						<td th:text="${employee.EMPLOYEE_MAIL}"></td>
 					</tr>
 				</tbody>
 			</table>
