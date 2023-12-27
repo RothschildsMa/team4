@@ -1,5 +1,7 @@
 package com.ntsed.api.entity;
 
+import java.io.Serializable;
+
 //import java.sql.Date;
 
 import java.util.Date;
@@ -23,16 +25,18 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class EmployeeListInfo {
+public class EmployeeListInfo implements Serializable{
 
 	@Id
-	private Long EMPLOYEE_ID;
-	private String EMPLOYEE_NAME;
-	private Date ENTRY_DATE;
-	private Integer GENDER_ID;
-	private Integer EMPLOYEE_AGE;
-	private Integer DEPT_ID;
-	private String EMPLOYEE_MAIL;
+	private Long employeeId;
+	private String employeeName;
+	private Date entryDate;
+	private Integer genderId;
+	private String genderName;
+	private Integer employeeAge;
+	private Integer deptId;
+	private String deptName;
+	private String employeeMail;
 
 }
 

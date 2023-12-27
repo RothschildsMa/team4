@@ -6,7 +6,7 @@
 -->
 
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<meta charset="UTF-8">
@@ -21,15 +21,16 @@
 -->
 <body>
 	<!--フォーム1検索機能-->
-	<form th:action="@{/search}" method="post">
+	<form th:action="@{/employees/search}" th:object="${searchRequest}" method="post">
 		<div class="hed">
 			<div>
 				<label>社員ID　　</label>
-				<input type="text" placeholder="社員ID(10桁)" name="employeeId">
+				<input type="text" placeholder="社員ID(10桁)" th:field="*{employeeId}" name="employeeId">
 			</div>
 			<div>
 				<label>所属</label>
-				<select>
+				<select th:field="*{deptId}">
+					<option value="99">----</option>
 					<option value="0">管理部</option>
 					<option value="1">人事部</option>
 					<option value="2">開発部</option>
@@ -45,9 +46,9 @@
 		</div>
 		<div class="tyuukan">
 			<label for="inputJoinDate">入社年月日</label>
-			<input type="date" name="upStartData">
+			<input type="date" th:field="*{startDate}" name="upStartData">
 			<label for="inputJoinDate">～</label>
-			<input type="date" name="upEndData">
+			<input type="date" th:field="*{endDate}" name="upEndData">
 		</div>
 	</form>
 	
@@ -95,14 +96,14 @@
 				<tbody>
 					<!--Thymeleaf の構文を使用してデータを表示 -->
 					<tr th:each="employee : ${employees}">
-						<td><input type="checkbox" th:value="${employee.EMPLOYEE_ID}" name="selectedIds"></td>
-						<td><a th:href="@{'/user/' + ${employee.EMPLOYEE_ID} + '/editTest'}" th:text="${employee.EMPLOYEE_ID}">Employee ID</a></td>
-						<td th:text="${#dates.format(employee.ENTRY_DATE, 'yyyy-MM-dd HH:mm:ss')}"></td>
-						<td th:text="${employee.EMPLOYEE_NAME}"></td>
-						<td th:text="${employee.GENDER_ID}"></td>
-						<td th:text="${employee.EMPLOYEE_AGE}"></td>
-						<td th:text="${employee.DEPT_ID}"></td>
-						<td th:text="${employee.EMPLOYEE_MAIL}"></td>
+						<td><input type="checkbox" th:value="${employee.employeeId}" name="selectedIds"></td>
+						<td><a th:href="@{'/user/' + ${employee.employeeId} + '/editTest'}" th:text="${employee.employeeId}">Employee ID</a></td>
+						<td th:text="${#dates.format(employee.entryDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+						<td th:text="${employee.employeeName}"></td>
+						<td th:text="${employee.genderName}"></td>
+						<td th:text="${employee.employeeAge}"></td>
+						<td th:text="${employee.deptName}"></td>
+						<td th:text="${employee.employeeMail}"></td>
 					</tr>
 				</tbody>
 			</table>

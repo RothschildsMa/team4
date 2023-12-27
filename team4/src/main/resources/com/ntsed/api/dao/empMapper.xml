@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.ntsed.api.dao.EmpMapper">
+
+	<select id="getAll" resultType="com.ntsed.api.entity.EmployeeListInfo">
+		SELECT t1.* ,
+		t2.GENDER_NAME AS GENDER_NAME,
+		t3.DEPT_NAME AS DEPT_NAME
+		FROM T_EMPLOYEE t1
+		LEFT JOIN M_GENDER t2 ON t1.GENDER_ID = t2.GENDER_ID
+		LEFT JOIN M_DEPT t3 ON t1.DEPT_ID = t3.DEPT_ID
+		WHERE t1.DEL_FLG = 0
+	</select>
+	
+	
+	<select id="searchList" resultType="com.ntsed.api.entity.EmployeeListInfo">
+		SELECT t1.* ,
+		t2.GENDER_NAME AS GENDER_NAME,
+		t3.DEPT_NAME AS DEPT_NAME
+		FROM T_EMPLOYEE t1
+		LEFT JOIN M_GENDER t2 ON t1.GENDER_ID = t2.GENDER_ID
+		LEFT JOIN M_DEPT t3 ON t1.DEPT_ID = t3.DEPT_ID
+		<where>
+			t1.DEL_FLG = 0
+			
+			<if test="employeeId != null and employeeId != ''">
+				AND t1.EMPLOYEE_ID = #{employeeId}
+			</if>
+			
+			<if test="deptId != null and deptId != 99">
+				AND t1.DEPT_ID = #{deptId}
+			</if>
+			
+			<if test="startDate != null and startDate != ''">
+				AND t1.ENTRY_DATE &gt;= #{startDate} 
+			</if>
+			
+			<if test="endDate != null and endDate != ''">
+				AND t1.ENTRY_DATE &lt;= #{endDate}
+			</if>
+			
+			
+			
+		</where>
+	</select>
+
+
+
+
+</mapper>

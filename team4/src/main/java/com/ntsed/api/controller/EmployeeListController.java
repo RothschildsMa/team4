@@ -1,12 +1,15 @@
 package com.ntsed.api.controller;
 
+import java.awt.print.Printable;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 //import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ntsed.api.dto.SearchRequest;
 import com.ntsed.api.entity.EmployeeListInfo;
 import com.ntsed.api.service.EmployeeListService;
 
@@ -36,6 +39,23 @@ public class EmployeeListController {
         List<EmployeeListInfo> employees = employeeService.getAllEmployees();
         model.addAttribute("employees", employees);
 //        return "TestIndex"; // このテンプレート名は適宜変更してください
+        return "EmployeeList";
+    }
+    
+    
+    @GetMapping("/getall")
+    public String view1(Model model,SearchRequest searchRequest) {
+        model.addAttribute("employees", employeeService.getAll());
+        return "EmployeeList";
+    }
+    
+    
+    @PostMapping("/search")
+    public String view2(Model model,SearchRequest searchRequest) {
+    	System.out.println(searchRequest.getEmployeeId());
+    	System.out.println(searchRequest.getDeptId());
+    	System.out.println(searchRequest.getStartDate());
+        model.addAttribute("employees", employeeService.search(searchRequest));
         return "EmployeeList";
     }
     
