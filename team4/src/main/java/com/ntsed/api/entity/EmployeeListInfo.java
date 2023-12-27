@@ -22,7 +22,6 @@ import lombok.Setter;
 @Table(name = "T_EMPLOYEE")
 
 @Getter
-
 @Setter
 public class EmployeeListInfo {
 

@@ -1,6 +1,8 @@
 package com.ntsed.api.controller;
 
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 
 /*
  * author: aさん
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 */
 @RestController
 public class TestController {
-           
-	int soi = 1+7;
+	
+    
+
 }
