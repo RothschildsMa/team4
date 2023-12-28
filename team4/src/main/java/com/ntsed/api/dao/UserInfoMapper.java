@@ -9,6 +9,8 @@ import com.ntsed.api.dto.UserUpdateRequest;
 @Mapper
 public interface UserInfoMapper {
 
+	Integer getMaxId();
+	
 	UserInfo findById(Long employeeId);
 	
 	void save(UserAddRequest userRequest);

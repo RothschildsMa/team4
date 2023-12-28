@@ -21,6 +21,10 @@ public class UserInfoService {
 	@Autowired
     private UserInfoMapper userInfoMapper;
 	
+	public Integer getMaxId() {
+		return userInfoMapper.getMaxId();
+	}
+	
 	public UserInfo findById(Long employeeId) {
         return userInfoMapper.findById(employeeId);
     }

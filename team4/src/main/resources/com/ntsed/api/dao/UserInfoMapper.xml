@@ -6,16 +6,21 @@
 <!-- author: セツ
   date:2023/12/19  -->
 
+   <select id="getMaxId" resultType="java.lang.Integer">
+        SELECT MAX(EMPLOYEE_ID)+1 FROM T_EMPLOYEE
+    </select>
+
+
    <select id="findAll" resultType="com.ntsed.api.entity.UserInfo">
-        SELECT * FROM t_employee WHERE DEL_FLG = 0
+        SELECT * FROM T_EMPLOYEE WHERE DEL_FLG = 0
     </select>
     <select id="findById" resultType="com.ntsed.api.entity.UserInfo">
-        SELECT * FROM t_employee WHERE EMPLOYEE_ID=#{employeeId} AND WHERE DEL_FLG = 0
+        SELECT * FROM T_EMPLOYEE WHERE EMPLOYEE_ID=#{employeeId} AND WHERE DEL_FLG = 0
     </select>
 
 	<insert id="save">
-		INSERT INTO t_employee
-		(EMPLOYEE_ID,
+		INSERT INTO T_EMPLOYEE
+		(
 		EMPLOYEE_NAME,
 		DEPT_ID,
 		DEL_FLG,
@@ -27,7 +32,7 @@
 		CREATE_DATE,
 		CREATE_USER)
 		VALUES
-		(#{employeeId},
+		(
 		#{employeeName},
 		#{deptId},
 		#{delFlg},
@@ -42,7 +47,7 @@
 		)
 	</insert>
 	<update id="update">
-		UPDATE t_employee SET EMPLOYEE_NAME = #{employeeName}, DEPT_ID = #{deptId},
+		UPDATE T_EMPLOYEE SET EMPLOYEE_NAME = #{employeeName}, DEPT_ID = #{deptId},
 		GENDER_ID = #{genderId},
 		EMPLOYEE_TEL =#{employeeTel},
 		ENTRY_DATE

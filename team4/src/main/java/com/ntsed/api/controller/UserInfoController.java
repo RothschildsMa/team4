@@ -34,8 +34,10 @@ public class UserInfoController {
     private UserInfoService userInfoService;
 	
 	 @GetMapping(value = "/user/add")
-	    public String displayAdd(Model model) {
-	        model.addAttribute("userAddRequest", new UserAddRequest());
+	    public String displayAdd(Model model,UserAddRequest userAddRequest) {
+		 userAddRequest.setEmployeeId(userInfoService.getMaxId());
+		 
+	        model.addAttribute("userAddRequest",userAddRequest );
 	        return "user/add";
 	    }
 	 

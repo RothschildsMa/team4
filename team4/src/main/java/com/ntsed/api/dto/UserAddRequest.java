@@ -23,7 +23,7 @@ import lombok.Data;
 @Data
 public class UserAddRequest implements Serializable {
 
-	private Long employeeId;
+	private Integer employeeId;
 
 	@NotEmpty(message = "氏名を入力してください")
 	@Size(max = 20, message = "氏名は20桁以内で入力してください")
